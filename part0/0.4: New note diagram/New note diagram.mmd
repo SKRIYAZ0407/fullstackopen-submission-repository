@@ -1,0 +1,17 @@
+sequenceDiagram
+    Client->>+Server: post request with text field data and action new_note to https://studies.cs.helsinki.fi/exampleapp/new_note
+    Server->>Server: the server executes the function new_note.js file. Find the note html document and send it to client
+    Server->>-Client: notes HTML document
+    Client->>Client: starts executing the html document and encounter link which is reference to main.css
+    Client->>+Server:  GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    Server->>Server: finds the main.css and send to client
+    Server->>-Client: main.css CSS File
+    Client->>Client:starts executing the html document encounter script tag 
+    Client->>+Server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+    Server->>Server:finds the main.js file and send to client
+    Server->>-Client: main.js Java Script File
+    Client->>Client:Intiates the get request for data.json by browser as per main.js
+    Client->>+Server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    Server->>Server:finds the data.json and send it
+    Server->>-Client: data.json File
+    Client->>Client:as soon as data comes the callback function assigned to event handler starts executed
