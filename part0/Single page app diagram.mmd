@@ -1,0 +1,10 @@
+sequenceDiagram
+        client->>+server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+        server->>-client: html document with status code 200
+        client->>+server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+        server->>-client: main.css file with status code 200
+        client->>+server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+        server->>-client: spa.js file with status code 200
+        client->>+server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+        server->>-client: data.json file with status code 200
+        

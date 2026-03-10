@@ -1,0 +1,20 @@
+sequenceDiagram
+    Client->>+Server: post request with form data note to https://studies.cs.helsinki.fi/exampleapp/new_note
+    note right of Server: Executes the new_note javascript progarm
+    Server->>-Client: with response status 302 and redirecting location of https://studies.cs.helsinki.fi/exampleapp/notes
+    note right of Client: By seeing 302 status code, request the url in the location field
+    Client->>+Server:GET https://studies.cs.helsinki.fi/exampleapp/notes
+    Server->>-Client: notes HTML document
+    note right of Client: starts executing the html document and encounter link which is reference to main.css
+    Client->>+Server:  GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    note right of Server: finds the main.css and send to client
+    Server->>-Client: main.css CSS File
+    note right of Client:starts executing the html document encounter script tag 
+    Client->>+Server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+    note right of Server:finds the main.js file and send to client
+    Server->>-Client: main.js Java Script File
+    note right of Client:Intiates the get request for data.json by browser as per main.js
+    Client->>+Server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    note right of Server:finds the data.json and send it
+    Server->>-Client: data.json File
+    note right of Client:as soon as data comes the callback function assigned to event handler starts executed
