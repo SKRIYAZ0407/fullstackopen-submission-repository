@@ -1,0 +1,6 @@
+sequenceDiagram
+        user->>client: Enter the data in text field and click submit
+        note left of client: a callback function adds text field data as a list item to the unorder list and calls the sendToServer functions which produces post request
+        client->>+server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa with payload of {"content":"hello","date":"2026-03-10T16:46:10.706Z"}
+        server->>-client: with status code 201 and response of {"message":"note created"}
+        note right of client: a callback function log the response on the console of the browser
